@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Light mode specific background and global typography */
+html.light,
+html.light body {
+  background-color: #C4B5FD !important;
+  color: #000000 !important;
+}
+
+/* In light mode: convert dark card & container surfaces to clean white */
+html.light .bg-\[\#14141C\],
+html.light [class*="bg-[#14141C]"],
+html.light .bg-surface-card {
+  background-color: #FFFFFF !important;
+  border-color: rgba(139, 92, 246, 0.28) !important;
+  box-shadow: 0 2px 8px -2px rgba(109, 40, 217, 0.08);
+}
+
+/* Inner nested dark boxes become slightly tinted white or pure white */
+html.light .bg-\[\#0A0A0F\],
+html.light [class*="bg-[#0A0A0F]"]:not(pre):not(code) {
+  background-color: #FFFFFF !important;
+  border-color: rgba(139, 92, 246, 0.25) !important;
+}
+
+html.light .bg-\[\#0A0A0F\]\/40,
+html.light .bg-\[\#0A0A0F\]\/50,
+html.light .bg-\[\#0A0A0F\]\/60 {
+  background-color: #FBF9FF !important;
+  border-color: rgba(139, 92, 246, 0.2) !important;
+}
+
+/* In light mode: ensure all text on white surfaces and general light areas is pitch black #000000 */
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6 {
+  color: #000000 !important;
+}
+
+/* Target white cards and containers to make all text black on white areas */
+html.light .bg-white,
+html.light [class*="bg-white"],
+html.light [class*="bg-[#FFFFFF]"],
+html.light .bg-\[\#14141C\],
+html.light [class*="bg-[#14141C]"] {
+  color: #000000 !important;
+}
+
+/* Text-white on white cards becomes black, unless it is a colored button or badge */
+html.light .text-white:not(button):not(button *):not([class*="bg-[#8B5CF6]"]):not([class*="bg-[#8B5CF6]"] *):not([class*="bg-[#7C3AED]"]):not([class*="bg-[#7C3AED]"] *):not([class*="from-[#8B5CF6]"]):not([class*="from-[#8B5CF6]"] *):not([class*="bg-[#22C55E]"]):not([class*="bg-[#22C55E]"] *):not([class*="bg-[#EF4444]"]):not([class*="bg-[#EF4444]"] *):not([class*="bg-gradient-to"]):not([class*="bg-gradient-to"] *) {
+  color: #000000 !important;
+}
+
+/* Secondary muted text in light mode on white areas */
+html.light .text-\[\#A1A1B5\]:not(button):not(button *) {
+  color: #2D273D !important;
+}
+
+/* Purple accent text readable against white surfaces */
+html.light .text-\[\#C4B5FD\]:not(button):not(button *) {
+  color: #6D28D9 !important;
+}
+
+/* Light purple badges in light mode */
+html.light .bg-\[\#8B5CF6\]\/20 {
+  background-color: rgba(139, 92, 246, 0.15) !important;
+  color: #6D28D9 !important;
+}
+
+/* Text inputs, textareas, selects in light mode: white background, pitch-black text */
+html.light textarea,
+html.light input[type="text"],
+html.light input[type="email"],
+html.light input[type="password"],
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #000000 !important;
+  border-color: rgba(139, 92, 246, 0.4) !important;
+}
+
+html.light textarea::placeholder,
+html.light input::placeholder {
+  color: #6B7280 !important;
+}
+
+/* Border adjustments for light mode */
+html.light .border-\[\#2A2340\],
+html.light [class*="border-[#2A2340]"] {
+  border-color: rgba(139, 92, 246, 0.22) !important;
+}
+
+/* Custom glow utility for focused inputs */
+.purple-input-glow:focus {
+  outline: none;
+  border-color: #8B5CF6;
+  box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25), 0 0 16px rgba(139, 92, 246, 0.35);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #2A2340;
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3E325E;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #A78BFA;
+  border-radius: 4px;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+

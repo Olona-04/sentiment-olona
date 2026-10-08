@@ -1,0 +1,6 @@
+{
+  "name": "SentimentAI",
+  "description": "Turn words into insights with SentimentAI - VADER and Hugging Face sentiment intelligence with chat assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
